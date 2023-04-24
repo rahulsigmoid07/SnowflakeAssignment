@@ -193,7 +193,7 @@ GRANT USAGE ON SCHEMA "MY_SCHEMA" to role "DEVELOPER";
 GRANT SELECT ON TABLE assignment_db.my_schema.in_employee to role "DEVELOPER";
 -- GRANT apply MASKING POLICY on  hideEmail_mask TO ROLE developer;
 
--- creating masking policy for hiding email on developer
+-- creating masking policy for hiding email on the developer
 CREATE OR REPLACE MASKING POLICY hideEmail_mask AS (val string) RETURNS string ->
   CASE
     WHEN CURRENT_ROLE() IN ('ACCOUNTADMIN', 'ADMIN', 'PII') THEN val
